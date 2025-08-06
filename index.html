@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sizwe Madlala - Interactive CV</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+</head>
+<body class="bg-gray-900 text-gray-100 font-inter">
+  <div class="min-h-screen flex flex-col md:flex-row">
+    <!-- Sidebar -->
+    <aside class="bg-gray-800 w-full md:w-72 p-6 flex flex-col items-center">
+      <img class="rounded-full w-32 h-32 mb-4 border-4 border-gray-700" src="sizweImage.jpg" alt="Sizwe Madlala" />
+      <h1 class="text-xl font-bold">SIZWE MADLALA</h1>
+      <p class="text-sm mt-1">IT Systems Administrator</p>
+      <div class="mt-4 space-y-1 text-sm">
+        <p>📧 sizwemadlala99@gmail.com</p>
+        <p>📞 074 926 3343</p>
+        <p>💬 WhatsApp: 074 926 3343</p>
+        <a href="https://linkedin.com/in/sizwe-madlala-180b19210" class="text-blue-400 hover:underline">🔗 LinkedIn</a>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-6">
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold mb-2">Professional Summary</h2>
+        <p class="text-gray-300">
+          Motivated and detail-oriented IT Systems Administrator with hands-on experience in business application support within a Linux environment. Strong in troubleshooting, system monitoring, file transfer management, and job scheduling. Skilled in SQL, scripting, and technical support processes, with a solid foundation in database systems and programming. A confident team player with strong problem-solving abilities, leadership potential, and the ability to work under pressure.
+        </p>
+      </section>
+
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold mb-2">Education</h2>
+        <ul class="list-disc list-inside text-gray-300">
+          <li><strong>BSc in Information Technology</strong> – North-West University, Vaal Triangle Campus (2019 – 2021)</li>
+          <li><strong>National Senior Certificate</strong> – M.H Joosub Technical Secondary School (2013 – 2017)</li>
+        </ul>
+      </section>
+
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold mb-2">Certifications</h2>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Linux Bootcamp – Udemy (Completed)</li>
+          <li>Master Java for Test Automation – Udemy (In Progress)</li>
+          <li>Authorised Cisco APM210 Training (Completed)</li>
+          <li>IMPACT Leadership Training – Zebra Blue (Completed)</li>
+        </ul>
+      </section>
+
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold mb-2">Work Experience</h2>
+        <!-- Role: FNB Connect -->
+        <div class="mb-4">
+          <button onclick="togglePopup('fnb')" class="bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded">FNB Connect – IT Business Application Support (2023–Present)</button>
+          <div id="fnb" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg">
+            <ul class="list-disc list-inside text-gray-300">
+              <li>Provide Level 1 and 2 support for business-critical applications on Linux systems.</li>
+              <li>System health checks, log reviews, and performance monitoring.</li>
+              <li>Manage SFTP secure file transfers and delivery pipelines.</li>
+              <li>Monitor job scheduling (cron/internal schedulers).</li>
+              <li>Resolve application errors using grep, tail, cat, etc.</li>
+              <li>Monthly internal/external reconciliations and reporting.</li>
+              <li>Collaborate with Ops, Dev, and Support teams for incident handling.</li>
+              <li>Support change control, UAT, and post-deployment processes.</li>
+              <li>Maintain documentation and knowledge base entries.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Role: Liberty -->
+        <div>
+          <button onclick="togglePopup('liberty')" class="bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded">Liberty – Inbound Customer Service (2022)</button>
+          <div id="liberty" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg">
+            <ul class="list-disc list-inside text-gray-300">
+              <li>Assisted clients with product and policy-related queries.</li>
+              <li>Resolved complaints ensuring high customer satisfaction.</li>
+              <li>Handled policy servicing tasks and client data updates.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold mb-2">Projects</h2>
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <button onclick="togglePopup('proj1')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Discovery Rewards Account System</button>
+            <div id="proj1" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
+              Backend system for managing Discovery Vitality rewards and Miles using Java, Maven, IntelliJ & Git.
+            </div>
+          </div>
+          <div>
+            <button onclick="togglePopup('proj2')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Fire Damage Assessment System</button>
+            <div id="proj2" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
+              Data-tracking and damage assessment tool with reporting features and a structured relational database model.
+            </div>
+          </div>
+          <div>
+            <button onclick="togglePopup('proj3')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Computer Geeks Bursary System</button>
+            <div id="proj3" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
+              Operational Oracle database for bursary processing and applicant management.
+            </div>
+          </div>
+          <div>
+            <button onclick="togglePopup('proj4')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Take A Book System</button>
+            <div id="proj4" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
+              ASP.NET web application for textbook/stationery orders with in-memory data storage.
+            </div>
+          </div>
+          <div>
+            <button onclick="togglePopup('proj5')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">PhotoGuru Web App</button>
+            <div id="proj5" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
+              Online photo management platform using Razor Pages and Azure integration.
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold mb-2">Technical Skills</h2>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Databases: Oracle, MySQL, MS SQL Server, SQL</li>
+          <li>Languages: Java, C#, C++, Python, HTML & CSS</li>
+          <li>Tools & Tech: Git, IntelliJ IDEA, ASP.NET, Razor Pages, Microsoft Office</li>
+          <li>OS: Linux (Ubuntu/Red Hat), Bash</li>
+          <li>Operations: App Monitoring, Job Scheduling (cron), SFTP, Reporting</li>
+        </ul>
+      </section>
+
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold mb-2">Languages</h2>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>English – Fluent</li>
+          <li>IsiZulu – Fluent</li>
+          <li>Sesotho – Fluent</li>
+        </ul>
+      </section>
+
+      <section class="mb-6">
+        <h2 class="text-2xl font-semibold mb-2">References</h2>
+        <ul class="list-disc list-inside text-gray-300">
+          <li>Ettios Nkobi – Service Support Center Manager: 083 800 5482</li>
+          <li>Vusi Fakude – IT Operations Manager: 079 216 6197</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    function togglePopup(id) {
+      const el = document.getElementById(id);
+      el.classList.toggle('hidden');
+    }
+  </script>
+</body>
+</html>
