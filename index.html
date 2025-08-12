@@ -6,25 +6,43 @@
   <title>Sizwe Madlala - Interactive CV</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <style>
+    .fade {
+      transition: all 0.3s ease;
+      overflow: hidden;
+    }
+    .fade-hidden {
+      max-height: 0;
+      opacity: 0;
+      padding-top: 0;
+      padding-bottom: 0;
+      margin-top: 0;
+    }
+    .fade-visible {
+      max-height: 500px;
+      opacity: 1;
+      margin-top: 0.5rem;
+    }
+  </style>
 </head>
 <body class="bg-gray-900 text-gray-100 font-inter">
   <div class="min-h-screen flex flex-col md:flex-row">
     <!-- Sidebar -->
     <aside class="bg-gray-800 w-full md:w-72 p-6 flex flex-col items-center">
-      <img class="rounded-full w-32 h-32 mb-4 border-4 border-gray-700" src="sizweImage.jpg" alt="Sizwe Madlala" />
+      <img class="rounded-full w-35 h-32 mb-4 border-4 border-gray-700" src="PICCV1.jpg" alt="Sizwe Madlala" />
       <h1 class="text-xl font-bold">SIZWE MADLALA</h1>
       <p class="text-sm mt-1">IT Systems Administrator</p>
-      <div class="mt-4 space-y-1 text-sm">
+      <div class="mt-4 space-y-1 text-sm text-center">
         <p>📧 sizwemadlala99@gmail.com</p>
         <p>📞 074 926 3343</p>
         <p>💬 WhatsApp: 074 926 3343</p>
-        <a href="https://linkedin.com/in/sizwe-madlala-180b19210" class="text-blue-400 hover:underline">🔗 LinkedIn</a>
+        <a href="https://linkedin.com/in/sizwe-madlala-180b19210" class="text-teal-400 hover:underline">🔗 LinkedIn</a>
       </div>
     </aside>
 
     <!-- Main Content -->
     <main class="flex-1 p-6">
+      <!-- Summary -->
       <section class="mb-6">
         <h2 class="text-2xl font-semibold mb-2">Professional Summary</h2>
         <p class="text-gray-300">
@@ -32,6 +50,7 @@
         </p>
       </section>
 
+      <!-- Education -->
       <section class="mb-6">
         <h2 class="text-2xl font-semibold mb-2">Education</h2>
         <ul class="list-disc list-inside text-gray-300">
@@ -40,6 +59,7 @@
         </ul>
       </section>
 
+      <!-- Certifications -->
       <section class="mb-6">
         <h2 class="text-2xl font-semibold mb-2">Certifications</h2>
         <ul class="list-disc list-inside text-gray-300">
@@ -50,13 +70,21 @@
         </ul>
       </section>
 
+      <!-- Work Experience -->
       <section class="mb-6">
         <h2 class="text-2xl font-semibold mb-2">Work Experience</h2>
-        <!-- Role: FNB Connect -->
-        <div class="mb-4">
-          <button onclick="togglePopup('fnb')" class="bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded">FNB Connect – IT Business Application Support (2023–Present)</button>
-          <div id="fnb" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg">
-            <ul class="list-disc list-inside text-gray-300">
+
+        <!-- FNB -->
+        <div>
+          <button onclick="togglePopup('fnb', this)" 
+            class="flex justify-between items-center bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-500 hover:to-blue-500 text-white px-4 py-2 rounded w-full">
+            <span class="flex items-center gap-2">
+              📁 FNB Connect – IT Business Application Support (2023–Present)
+            </span>
+            <span class="transition-transform transform">&#9662;</span>
+          </button>
+          <div id="fnb" class="fade fade-hidden bg-gray-800 px-4 py-0 rounded shadow-lg">
+            <ul class="list-disc list-inside text-gray-300 py-2">
               <li>Provide Level 1 and 2 support for business-critical applications on Linux systems.</li>
               <li>System health checks, log reviews, and performance monitoring.</li>
               <li>Manage SFTP secure file transfers and delivery pipelines.</li>
@@ -70,11 +98,17 @@
           </div>
         </div>
 
-        <!-- Role: Liberty -->
-        <div>
-          <button onclick="togglePopup('liberty')" class="bg-blue-700 hover:bg-blue-600 text-white px-4 py-2 rounded">Liberty – Inbound Customer Service (2022)</button>
-          <div id="liberty" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg">
-            <ul class="list-disc list-inside text-gray-300">
+        <!-- Liberty -->
+        <div class="mt-2">
+          <button onclick="togglePopup('liberty', this)" 
+            class="flex justify-between items-center bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-500 hover:to-blue-500 text-white px-4 py-2 rounded w-full">
+            <span class="flex items-center gap-2">
+              📁 Liberty – Inbound Customer Service (2022)
+            </span>
+            <span class="transition-transform transform">&#9662;</span>
+          </button>
+          <div id="liberty" class="fade fade-hidden bg-gray-800 px-4 py-0 rounded shadow-lg">
+            <ul class="list-disc list-inside text-gray-300 py-2">
               <li>Assisted clients with product and policy-related queries.</li>
               <li>Resolved complaints ensuring high customer satisfaction.</li>
               <li>Handled policy servicing tasks and client data updates.</li>
@@ -83,42 +117,59 @@
         </div>
       </section>
 
+      <!-- Projects -->
       <section class="mb-6">
         <h2 class="text-2xl font-semibold mb-2">Projects</h2>
-        <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid md:grid-cols-2 gap-2">
           <div>
-            <button onclick="togglePopup('proj1')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Discovery Rewards Account System</button>
-            <div id="proj1" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
-              Backend system for managing Discovery Vitality rewards and Miles using Java, Maven, IntelliJ & Git.
+            <button onclick="togglePopup('proj1', this)" class="flex justify-between items-center bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-500 hover:to-blue-500 text-white px-4 py-2 rounded w-full">
+              <span class="flex items-center gap-2">💻 Discovery Rewards Account System</span>
+              <span class="transition-transform transform">&#9662;</span>
+            </button>
+            <div id="proj1" class="fade fade-hidden bg-gray-800 px-4 py-0 rounded shadow-lg text-sm">
+              <p class="py-2">Backend system for managing Discovery Vitality rewards and Miles using Java, Maven, IntelliJ & Git.</p>
             </div>
           </div>
           <div>
-            <button onclick="togglePopup('proj2')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Fire Damage Assessment System</button>
-            <div id="proj2" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
-              Data-tracking and damage assessment tool with reporting features and a structured relational database model.
+            <button onclick="togglePopup('proj2', this)" class="flex justify-between items-center bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-500 hover:to-blue-500 text-white px-4 py-2 rounded w-full">
+              <span class="flex items-center gap-2">💻 Fire Damage Assessment System</span>
+              <span class="transition-transform transform">&#9662;</span>
+            </button>
+            <div id="proj2" class="fade fade-hidden bg-gray-800 px-4 py-0 rounded shadow-lg text-sm">
+              <p class="py-2">Data-tracking and damage assessment tool with reporting features and a structured relational database model.</p>
             </div>
           </div>
           <div>
-            <button onclick="togglePopup('proj3')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Computer Geeks Bursary System</button>
-            <div id="proj3" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
-              Operational Oracle database for bursary processing and applicant management.
+            <button onclick="togglePopup('proj3', this)" class="flex justify-between items-center bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-500 hover:to-blue-500 text-white px-4 py-2 rounded w-full">
+              <span class="flex items-center gap-2">💻 Computer Geeks Bursary System</span>
+              <span class="transition-transform transform">&#9662;</span>
+            </button>
+            <div id="proj3" class="fade fade-hidden bg-gray-800 px-4 py-0 rounded shadow-lg text-sm">
+              <p class="py-2">Operational Oracle database for bursary processing and applicant management.</p>
             </div>
           </div>
           <div>
-            <button onclick="togglePopup('proj4')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">Take A Book System</button>
-            <div id="proj4" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
-              ASP.NET web application for textbook/stationery orders with in-memory data storage.
+            <button onclick="togglePopup('proj4', this)" class="flex justify-between items-center bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-500 hover:to-blue-500 text-white px-4 py-2 rounded w-full">
+              <span class="flex items-center gap-2">💻 Take A Book System</span>
+              <span class="transition-transform transform">&#9662;</span>
+            </button>
+            <div id="proj4" class="fade fade-hidden bg-gray-800 px-4 py-0 rounded shadow-lg text-sm">
+              <p class="py-2">ASP.NET web application for textbook/stationery orders with in-memory data storage.</p>
             </div>
           </div>
           <div>
-            <button onclick="togglePopup('proj5')" class="bg-green-700 hover:bg-green-600 text-white px-4 py-2 rounded w-full">PhotoGuru Web App</button>
-            <div id="proj5" class="hidden bg-gray-800 mt-2 p-4 rounded shadow-lg text-sm">
-              Online photo management platform using Razor Pages and Azure integration.
+            <button onclick="togglePopup('proj5', this)" class="flex justify-between items-center bg-gradient-to-r from-teal-600 to-blue-600 hover:from-teal-500 hover:to-blue-500 text-white px-4 py-2 rounded w-full">
+              <span class="flex items-center gap-2">💻 PhotoGuru Web App</span>
+              <span class="transition-transform transform">&#9662;</span>
+            </button>
+            <div id="proj5" class="fade fade-hidden bg-gray-800 px-4 py-0 rounded shadow-lg text-sm">
+              <p class="py-2">Online photo management platform using Razor Pages and Azure integration.</p>
             </div>
           </div>
         </div>
       </section>
 
+      <!-- Skills -->
       <section class="mb-6">
         <h2 class="text-2xl font-semibold mb-2">Technical Skills</h2>
         <ul class="list-disc list-inside text-gray-300">
@@ -130,6 +181,7 @@
         </ul>
       </section>
 
+      <!-- Languages -->
       <section class="mb-6">
         <h2 class="text-2xl font-semibold mb-2">Languages</h2>
         <ul class="list-disc list-inside text-gray-300">
@@ -139,7 +191,8 @@
         </ul>
       </section>
 
-      <section class="mb-6">
+      <!-- References -->
+      <section>
         <h2 class="text-2xl font-semibold mb-2">References</h2>
         <ul class="list-disc list-inside text-gray-300">
           <li>Ettios Nkobi – Service Support Center Manager: 083 800 5482</li>
@@ -150,9 +203,12 @@
   </div>
 
   <script>
-    function togglePopup(id) {
+    function togglePopup(id, btn) {
       const el = document.getElementById(id);
-      el.classList.toggle('hidden');
+      const arrow = btn.querySelector('span:last-child');
+      el.classList.toggle('fade-hidden');
+      el.classList.toggle('fade-visible');
+      arrow.classList.toggle('rotate-180');
     }
   </script>
 </body>
